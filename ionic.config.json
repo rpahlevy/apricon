@@ -1,0 +1,7 @@
+{
+  "name": "apricon",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
