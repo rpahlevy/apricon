@@ -1,11 +1,13 @@
 <template>
-  <ion-grid class="ion-no-padding">
+  <ion-grid class="ion-no-padding ion-activatable" @click="copyId(uid)">
     <ion-row class="ion-no-padding">
       <ion-col class="ion-float-left">
-        {{ uid }} 
+        <ion-label>
+          {{ formatNumber(uid) }}
+        </ion-label>
       </ion-col>
-      <ion-col class="ion-float-right ion-text-right" @click="copyId(uid)">
-        <ion-icon :icon="copyIcon" />
+      <ion-col class="ion-float-right ion-text-right">
+          <ion-icon :icon="copyOutline" />
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -16,10 +18,11 @@ import {
   IonGrid,
   IonRow,
   IonCol,
+  IonLabel,
   IonIcon,
   toastController,
 } from '@ionic/vue';
-import { copy as copyIcon } from 'ionicons/icons';
+import { copyOutline } from 'ionicons/icons';
 import copy from 'copy-to-clipboard';
 
 export default {
@@ -28,12 +31,13 @@ export default {
     IonGrid,
     IonRow,
     IonCol,
+    IonLabel,
     IonIcon,
   },
   setup() {
     return {
       copy,
-      copyIcon,
+      copyOutline,
     }
   },
   props: {
@@ -47,7 +51,10 @@ export default {
           message: 'UID copied',
           duration: 1000
         })
-      return toast.present();
+      return toast.present()
+    },
+    formatNumber(num: number) {
+      return new Intl.NumberFormat().format(num)
     }
   }
 }

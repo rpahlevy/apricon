@@ -1,6 +1,6 @@
 <template>
   <ion-card>
-    <ion-card-header router-link="/tabs/tab2">
+    <ion-card-header :router-link="'/tabs/account/' + account.uid">
       <ion-card-title>{{ account.name }}</ion-card-title>
       <ion-card-subtitle>Lv. {{ account.level }}</ion-card-subtitle>
     </ion-card-header>
@@ -11,7 +11,13 @@
 </template>
 
 <script lang="ts">
-import { IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/vue';
+import {
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardSubtitle,
+  IonCardContent,
+} from '@ionic/vue';
 import IdCopy from "@/components/IdCopy.vue";
 
 export default  {
