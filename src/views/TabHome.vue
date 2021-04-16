@@ -38,7 +38,7 @@ export default defineComponent({
   // },
   created() {
     this.showLoading(1000)
-    db.collection('accounts').onSnapshot((snapshotChange) => {
+    db.collection('accounts').orderBy('name').onSnapshot((snapshotChange) => {
       this.accounts = []
       snapshotChange.forEach((doc) => {
         const data = doc.data()

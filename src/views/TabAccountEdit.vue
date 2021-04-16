@@ -18,7 +18,7 @@
         </ion-item-divider>
         <ion-item>
           <ion-label position="fixed">UID</ion-label>
-          <ion-input enterkeyhint="next" inputmode="text" placeholder="User ID" required="true" autofocus="true" v-model="account.uid" readonly="true" />
+          <ion-input enterkeyhint="next" inputmode="numeric" placeholder="User ID" required="true" autofocus="true" v-model="account.uid" readonly="true" />
         </ion-item>
         <ion-item>
           <ion-label position="fixed">Name</ion-label>
